@@ -1,0 +1,12 @@
+{
+    "donations":[
+        {
+            "timestamp": 1318109580,
+            "payment_gross": 737.50,
+            "payment_fee": 0,
+            "payment_net": 737.50,
+            "payment_date": "Sat, 8 Oct 2011 14:33:00 -0700",
+            "documentation_url": ""
+        }
+    ]
+}
