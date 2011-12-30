@@ -4,25 +4,29 @@
             "timestamp": 1315527943,
             "expense_amount": 787.00,
             "expense_date": "Thu, 08 Sep 2011 17:25:43 -0700",
-            "documentation_url": ""
+            "documentation_url": "",
+            "documentation_note": "Colo Payment"
         },
         {
             "timestamp": 1318185125,
             "expense_amount": 787.00,
             "expense_date": "Sun, 09 Oct 2011 11:32:05 -0700",
-            "documentation_url": ""
+            "documentation_url": "",
+            "documentation_note": "Colo Payment"
         },
         {
             "timestamp": 1319827438,
             "expense_amount": 787.00,
             "expense_date": "Fri, 28 Oct 2011 11:43:58 -0700",
-            "documentation_url": ""
+            "documentation_url": "",
+            "documentation_note": "Colo Payment"
         },
         {
             "timestamp": 1323568508,
             "expense_amount": 787.00,
             "expense_date": "Sat, 10 Dec 2011 17:55:08 -0800",
-            "documentation_url": ""
+            "documentation_url": "",
+            "documentation_note": "Colo Payment"
         }
     ]
 }

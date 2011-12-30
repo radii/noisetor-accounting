@@ -6,7 +6,8 @@
             "payment_fee": 0,
             "payment_net": 737.50,
             "payment_date": "Sat, 8 Oct 2011 14:33:00 -0700",
-            "documentation_url": ""
+            "documentation_url": "",
+            "documentation_note": "EPROM Donations"
         }
     ]
 }
