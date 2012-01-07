@@ -5,7 +5,10 @@
             "expense_amount": 787.00,
             "expense_date": "Thu, 08 Sep 2011 17:25:43 -0700",
             "documentation_url": "",
-            "documentation_note": "Colo Payment"
+            "documentation_note": "Colo Payment",
+            "invoice_number": "3828-290101",
+            "service_start": 1315378800,
+            "service_end": 1317970800
         },
         {
             "timestamp": 1318185125,
@@ -26,7 +29,10 @@
             "expense_amount": 787.00,
             "expense_date": "Sat, 10 Dec 2011 17:55:08 -0800",
             "documentation_url": "",
-            "documentation_note": "Colo Payment"
+            "documentation_note": "Colo Payment",
+            "invoice_number": "3828-294154",
+            "service_start": 1323244800,
+            "service_end": 1325923200
         }
     ]
 }
