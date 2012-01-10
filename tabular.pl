@@ -129,12 +129,6 @@ for my $i (@transactions) {
     }
 
     if ($i->{type} eq "expenses") {
-        display $i->{timestamp},
-                $i->{documentation_note},
-                undef,
-                $i->{expense_amount},
-                undef,
-                undef;
 
         if ($i->{documentation_note} eq "Colo Payment"
             && defined $i->{service_end}
@@ -142,6 +136,19 @@ for my $i (@transactions) {
         {
             $colo_end_date = $i->{service_end};
         }
+
+        if ($i->{service_start} and $i->{service_end}) {
+            my $start = POSIX::strftime("%b %e", localtime $i->{service_start});
+            my $end = POSIX::strftime("%b %e", localtime $i->{service_end});
+            $i->{documentation_note} .= " ($start - $end)";
+        }
+
+        display $i->{timestamp},
+                $i->{documentation_note},
+                undef,
+                $i->{expense_amount},
+                undef,
+                undef;
     }
 }
 
