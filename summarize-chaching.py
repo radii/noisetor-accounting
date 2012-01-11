@@ -59,7 +59,7 @@ def print_summary(ytd_json, oneoff_json, expenses):
 
     print "Spent %.2f on servers leaving %.2f in the bank" % (costs, income - costs)
 
-url = 'http://cha-ching.noisebridge.net/v1/donations/list/ytd/json/noisetor'
+url = 'http://cha-ching.noisebridge.net/v1/donations/list/all/json/noisetor'
 
 def usage():
     print '''Usage: %s [-v] [-e expenses] [-a oneoff] [-f jsonfile] [-u url] [-o file]
