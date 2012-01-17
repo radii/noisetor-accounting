@@ -14,6 +14,16 @@ my @transactions;
 my $balance = 0;
 my $colo_end_date = 0;
 
+my $year_income = 0;
+my $year_fee = 0;
+my $year_noisebridge = 0;
+my $year_expense = 0;
+
+my $month_income = 0;
+my $month_fee = 0;
+my $month_noisebridge = 0;
+my $month_expense = 0;
+
 sub display_header {
     print "
         <html>
@@ -36,26 +46,114 @@ sub display_header {
             <td bgcolor=dddddd>Balance\n";
 }
 
-sub display {
-    my ($time, $desc, $income, $expense, $paypal_fees, $noisebrige_fee) = @_;
-    my $date = POSIX::strftime "%Y-%m-%d", localtime $time;
-
-    if ($income) {
-        $balance += $income - $paypal_fees - $noisebrige_fee;
-    }
-    if ($expense) {
-        $balance -= $expense;
-    }
-
-    my $displaybalance = $balance;
-
-    for my $i ($income, $expense, $paypal_fees, $noisebrige_fee, $displaybalance) {
+sub format_dollar {
+    for my $i (@_) {
         if (defined $i) {
             $i = sprintf "%.02f", $i;
         }
         else {
             $i = "&nbsp;";
         }
+    }
+}
+
+my $lasttime = 0;
+
+sub display {
+    my ($time, $desc, $income, $expense, $paypal_fees, $noisebridge_fee) = @_;
+
+    my $nl;
+
+    if (!$time || ($lasttime && (localtime $time)[4] != (localtime $lasttime)[4])) {
+
+        for my $i ($month_income, $month_fee, $month_noisebridge, $month_expense) {
+            format_dollar $i;
+        }
+
+        my $date = POSIX::strftime "%B %Y totals", localtime $lasttime;
+
+        printf "
+            <tr bgcolor=ffffff>
+                <td align=left  bgcolor=ffffff>&nbsp;
+                <td align=right bgcolor=ffffff><i><small>$date:</small></i>
+                <td align=right bgcolor=ffffff><i><small>$month_income</small></i>
+                <td align=right bgcolor=ffffff><i><small>$month_fee</small></i>
+                <td align=right bgcolor=ffffff><i><small>$month_noisebridge</small></i>
+                <td align=right bgcolor=ffffff><i><small>$month_expense</small></i>
+                <td align=right bgcolor=ffffff>&nbsp;\n";
+
+        $month_income = 0;
+        $month_fee = 0;
+        $month_noisebridge = 0;
+        $month_expense = 0;
+        $nl++;
+    }
+
+    if (!$time || ($lasttime && (localtime $time)[5] != (localtime $lasttime)[5])) {
+
+        for my $i ($year_income, $year_fee, $year_noisebridge, $year_expense) {
+            format_dollar $i;
+        }
+
+        my $date = POSIX::strftime "Year %Y totals", localtime $lasttime;
+
+        printf "
+            <tr bgcolor=ffffff>
+                <td align=left  bgcolor=ffffff>&nbsp;
+                <td align=right bgcolor=ffffff><i><small>$date:</small></i>
+                <td align=right bgcolor=ffffff><i><small>$year_income</small></i>
+                <td align=right bgcolor=ffffff><i><small>$year_fee</small></i>
+                <td align=right bgcolor=ffffff><i><small>$year_noisebridge</small></i>
+                <td align=right bgcolor=ffffff><i><small>$year_expense</small></i>
+                <td align=right bgcolor=ffffff>&nbsp;\n";
+
+        $year_income = 0;
+        $year_fee = 0;
+        $year_noisebridge = 0;
+        $year_expense = 0;
+        $nl++;
+    }
+
+    $lasttime = $time;
+    return unless $time;
+
+    if ($nl) {
+        printf "
+            <tr bgcolor=ffffff>
+                <td align=left  bgcolor=ffffff><tiny>&nbsp;</tiny>
+                <td align=right bgcolor=ffffff><tiny>&nbsp;</tiny>
+                <td align=right bgcolor=ffffff><tiny>&nbsp;</tiny>
+                <td align=right bgcolor=ffffff><tiny>&nbsp;</tiny>
+                <td align=right bgcolor=ffffff><tiny>&nbsp;</tiny>
+                <td align=right bgcolor=ffffff><tiny>&nbsp;</tiny>
+                <td align=right bgcolor=ffffff><tiny>&nbsp;</tiny>\n";
+    }
+
+    my $date = POSIX::strftime "%Y-%m-%d", localtime $time;
+
+    if ($income) {
+        $balance += $income - $paypal_fees - $noisebridge_fee;
+
+        $month_income += $income;
+        $month_fee += $paypal_fees;
+        $month_noisebridge += $noisebridge_fee;
+
+        $year_income += $income;
+        $year_fee += $paypal_fees;
+        $year_noisebridge += $noisebridge_fee;
+    }
+
+    if ($expense) {
+        $balance -= $expense;
+
+        $month_expense += $expense;
+        $year_expense += $expense;
+    }
+
+    my $displaybalance = $balance;
+
+    for my $i ($income, $expense, $paypal_fees, $noisebridge_fee, $displaybalance) {
+        format_dollar $i;
     }
 
     printf "
@@ -64,7 +162,7 @@ sub display {
             <td align=left  bgcolor=00ff00>$desc
             <td align=right bgcolor=00ff00>$income
             <td align=right bgcolor=00ff00>$paypal_fees
-            <td align=right bgcolor=00ff00>$noisebrige_fee
+            <td align=right bgcolor=00ff00>$noisebridge_fee
             <td align=right bgcolor=00ff00>$expense
             <td align=right bgcolor=00ff00>$displaybalance\n";
 }
@@ -152,8 +250,11 @@ for my $i (@transactions) {
     }
 }
 
+display 0;
+
 print "
     </table>
+    <br>
     <ul>
     \n";
 
