@@ -71,6 +71,7 @@ sub display {
         }
 
         my $date = POSIX::strftime "%B %Y totals", localtime $lasttime;
+        $date .= " (so far)" unless $time;
 
         printf "
             <tr bgcolor=ffffff>
@@ -96,6 +97,7 @@ sub display {
         }
 
         my $date = POSIX::strftime "Year %Y totals", localtime $lasttime;
+        $date .= " (so far)" unless $time;
 
         printf "
             <tr bgcolor=ffffff>
