@@ -53,6 +53,14 @@
             "invoice_number": "3828-297209",
             "service_start": 1328601600,
             "service_end": 1331107200
+        },
+        {
+            "timestamp": 1330375714,
+            "expense_amount": 96.00,
+            "expense_date": "Date: Mon, 27 Feb 2012 12:48:34 -0800",
+            "documentation_url": "",
+            "documentation_note": "Colo Overage Charges",
+            "invoice_number": ""
         }
     ]
 }
