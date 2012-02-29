@@ -260,6 +260,12 @@ print "
     <ul>
     \n";
 
+
+print "
+    <a name=summary></a>
+    <li>There are \$$balance earmarked NoiseTor funds
+    \n";
+
 if ($colo_end_date) {
     my $monthly_fee = 787;
     my $months = int($balance / $monthly_fee);
