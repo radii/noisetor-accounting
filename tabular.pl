@@ -263,6 +263,9 @@ print "
 
 print "
     <a name=summary></a>
+    <blockquote>
+    Summary, suitable for cutting-and-pasting into the <a href='https://noisebridge.net/wiki/Next_meeting#Financial_Report'>Noisebridge weekly meeting notes</a>:
+    <blockquote>
     <li>There are \$$balance earmarked NoiseTor funds
     \n";
 
@@ -284,6 +287,10 @@ if ($colo_end_date) {
 print "<li>This information was updated at ", scalar localtime, "\n";
 
 print "
+    </blockquote>
+    </blockquote>
     </ul>
+    <br>
+    <br>
     </body>
     </html>\n";
