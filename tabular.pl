@@ -260,6 +260,7 @@ print "
     <ul>
     \n";
 
+format_dollar $balance;
 
 print "
     <a name=summary></a>
