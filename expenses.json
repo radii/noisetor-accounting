@@ -81,6 +81,16 @@
             "invoice_number": "3828-300384",
             "service_start": 1333782000,
             "service_end": 1336374000
+        },
+        {
+            "timestamp": 1336676537,
+            "expense_amount": 787.00,
+            "expense_date": "Thu, 10 May 2012 12:02:17 -0700",
+            "documentation_url": "",
+            "documentation_note": "Colo Payment",
+            "invoice_number": "3828-301910",
+            "service_start": 1336374000,
+            "service_end": 1339052400
         }
     ]
 }
