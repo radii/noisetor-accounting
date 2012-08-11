@@ -278,7 +278,7 @@ if ($colo_end_date) {
         POSIX::strftime("%b %e, %Y", localtime $colo_end_date), "\n";
 
     if ($months == 0) {
-        printf "<li>An additional %0.2f needs to be raised to pay for another month of service\n", $monthly_fee - $balance;
+        printf "<li>An additional \$%0.2f needs to be raised to pay for another month of service\n", $monthly_fee - $balance;
     }
     else {
         print "<li>There are enough funds to pay for an additional $months months of colo\n";
