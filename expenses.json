@@ -78,6 +78,28 @@
             "invoice_number": "3828-303407",
             "service_start": 1339052400,
             "service_end": 1341644400
+        },
+        {
+            "timestamp": 1340767811,
+            "expense_amount": 25.00,
+            "documentation_note": "Colo Late Fee",
+            "invoice_number": "3828-304133"
+        },
+        {
+            "timestamp": 1341100493,
+            "expense_amount": 787,
+            "documentation_note": "Colo Payment",
+            "invoice_number": "3828-304858",
+            "service_start": 1341644400,
+            "service_end": 1344322800
+        },
+        {
+            "timestamp": 1344397107,
+            "expense_amount": 787,
+            "documentation_note": "Colo Payment",
+            "invoice_number": "3828-306292",
+            "service_start": 1344322800,
+            "service_end": 1347001200
         }
     ]
 }
