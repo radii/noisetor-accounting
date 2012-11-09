@@ -87,7 +87,7 @@
         },
         {
             "timestamp": 1341100493,
-            "expense_amount": 787,
+            "expense_amount": 787.00,
             "documentation_note": "Colo Payment",
             "invoice_number": "3828-304858",
             "service_start": 1341644400,
@@ -95,7 +95,7 @@
         },
         {
             "timestamp": 1344397107,
-            "expense_amount": 787,
+            "expense_amount": 787.00,
             "documentation_note": "Colo Payment",
             "invoice_number": "3828-306292",
             "service_start": 1344322800,
@@ -103,7 +103,7 @@
         },
         {
             "timestamp": 1347639395,
-            "expense_amount": 787,
+            "expense_amount": 787.00,
             "documentation_note": "Colo Payment",
             "invoice_number": "3828-307797",
             "service_start": 1347001200,

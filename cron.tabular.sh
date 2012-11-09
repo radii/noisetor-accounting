@@ -9,4 +9,5 @@ git pull -q
 #wget -T 60 -q -O noisetor.json $URL
 curl -sS -f --connect-timeout 30 --max-time 60 -o noisetor.json $URL
 
+./genexpenses.pl expenses.csv  > expenses.json  
 ./tabular.pl > finances.html
